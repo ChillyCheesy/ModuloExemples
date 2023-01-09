@@ -1,0 +1,28 @@
+plugins {
+    id 'maven-publish'
+    id 'com.chillycheesy.modulo-application' version '1.2.1'
+}
+
+apply from: 'variable.gradle'
+
+group 'com.chillycheesy.helloworld'
+version helloworld_version
+
+module {
+    authors = ['ChillyCheesy', 'Vulcainos']
+    main = 'com.chillycheesy.helloworld.HelloWorldModule'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.chillycheesy:modulo-api:$modulo_version"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
